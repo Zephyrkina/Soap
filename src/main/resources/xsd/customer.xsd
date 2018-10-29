@@ -1,0 +1,43 @@
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema"
+           xmlns:tns = "http://tutorialspoint/schemas"
+           targetNamespace = "http://tutorialspoint/schemas"
+           elementFormDefault = "qualified">
+
+    <xs:element name="getCustomerRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element type="xs:int" name="id"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getCustomerResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="customer" type="tns:customer">
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="customer">
+        <xs:sequence>
+            <xs:element type="xs:int" name="id"/>
+            <xs:element type="xs:string" name="name"/>
+            <xs:element type="tns:role" name="role"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:simpleType name="role">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="USER"/>
+            <xs:enumeration value="ADMIN"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+</xs:schema>
+
+
